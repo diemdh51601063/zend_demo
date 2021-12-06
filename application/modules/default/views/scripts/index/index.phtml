@@ -1,1 +1,47 @@
-<h1> <?php echo '<br>'.__FILE__; ?></h1>
+<!DOCTYPE html>
+<html>
+<style>
+    table, th, td {
+        border:1px solid black;
+    }
+</style>
+<body>
+<?php
+    $linkAdd = $this->baseUrl($this->currentController.'/add');
+
+
+?>
+
+    <h2>LIST ACTOR</h2>
+
+    <div>
+        <a href="<?php echo $linkAdd;?>"><button>add actor</button></a>
+    </div>
+
+    <table style="width:80%; margin-top: 20px;">
+        <tr>
+            <th>id</th>
+            <th>first_name</th>
+            <th>last_name</th>
+            <th>last_update</th>
+        </tr>
+        <?php if($this->ListItems != null){
+            foreach ($this->ListItems as $item){
+                $id = $item['actor_id'];
+                $linkDetail = $this->baseUrl($this->currentController.'/detail/id/'.$id);
+                $linkEdit = $this->baseUrl($this->currentController.'/edit/id/'.$id);
+                $linkDelete = $this->baseUrl($this->currentController.'/delete/id/'.$id);
+                ?>
+                <tr>
+                    <td><?php echo $item['actor_id'] ?> <a href="<?php echo $linkDetail;?>"><button style="margin-left: 20px;">Detail</button></a></td>
+                    <td><?php echo $item['first_name'] ?></td>
+                    <td><?php echo $item['last_name'] ?></td>
+                    <td><?php echo $item['last_update'] ?></td>
+                    <td> <a href="<?php echo $linkEdit;?>"><button>Edit</button></a>  <a href="<?php echo $linkDelete;?>"><button style="margin-left: 20px;">Delete</button></a> </td>
+                </tr>
+            <?php } } ?>
+
+    </table>
+</body>
+</html>
+

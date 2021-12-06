@@ -1,0 +1,7 @@
+<?php $linkDelete = $this->baseUrl($this->currentController.'/delete/id/'.$this->item->actor_id); ?>
+<h1>Detail</h1>
+<h3>ID: <?php echo $this->item->actor_id; ?> </h3>
+<h3>First_name: <?php echo $this->item->first_name; ?> </h3>
+<h3>Last_name: <?php echo $this->item->last_name; ?> </h3>
+<h3>Last_update: <?php echo $this->item->last_update; ?> </h3>
+<a href="<?php echo $linkDelete;?>"><button>Delete</button></a>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Add Actor</h2>
+    <?php $linkAdd = $this->baseUrl($this->currentController.'/add');?>
+    <form onsubmit="onSubmitForm(<?php echo $linkAdd ?>)" method="post">
+        <label for="first_name">First name:</label><br>
+        <input type="text" id="first_name" name="first_name"><br>
+        <label for="last_name">Last name:</label><br>
+        <input type="text" id="last_name" name="last_name" ><br><br>
+        <label for="last_update">Last update:</label><br>
+        <input type="datetime-local" id="last_update" name="last_update" ><br><br>
+        <input type="submit" value="Edit">
+    </form>
+
+    <script>
+        function onSubmitForm(url){
+            document.appForm.action = url;
+            document.appForm.submit();
+            return true;
+        }
+    </script>
+
+</body>
+</html>
+
